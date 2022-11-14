@@ -1,0 +1,104 @@
+<!--<script src="/public/javascripts/script.js"></script>-->
+<nav class="navbar navbar-expand-lg navbar-light loginnav fixed-top">
+  <div class="container-fluid">
+    <a class="navbar-brand" href="#"><img
+        src="https://upload.wikimedia.org/wikipedia/commons/thumb/f/f4/BMW_logo_%28gray%29.svg/2048px-BMW_logo_%28gray%29.svg.png"
+        alt="Logo" width="40" height="40" class="d-inline-block align-text-top"></a>
+  </div>
+</nav>
+
+<section class="loginpage p-2">
+  <div class="container-fluid ">
+    <div class="row outerform ">
+      <div class="row text-center">
+        <div>
+          <h3>Admin Login</h3>
+        </div>  
+      </div>
+
+      <div class=" form-div p-4 col-md-6 mb-5">
+        {{#if loginErr}}
+        <div class="text-center text-danger">Invalid username and Password !
+        </div>
+        {{/if}}
+        <form action="/admin/admin-login" method="POST">
+          <div class="mb-3">
+            <label for="username" class="form-label">User name</label>
+            <input type="text" class="form-control" id="username" name="name" onkeyup="validatename()" required>
+            <div id="nameError" class="form-text text-danger"></div>
+          </div>
+          <div class="mb-3">
+            <label for="Password1" class="form-label">Password</label>
+            <input type="password" class="form-control" id="loginpassword" name="password" onkeyup="validatepassword()"
+              required>
+            <div id="passwordError" class="form-text text-danger"></div>
+
+          </div>
+
+          <button type="submit" class="btn btn-primary" onclick="return validateForm()">LOGIN</button>
+        </form>
+      </div>
+    </div>
+
+  </div>
+</section>
+<script>
+  var nameerror=document.getElementById('nameError');
+var passworderror=document.getElementById('passwordError');
+
+
+function validatepassword(){
+ let password=document.getElementById("loginpassword").value;
+
+  if(password.length==0){
+     passworderror.innerHTML=" This Field is Required !";
+     return false;
+  }
+  if(password.length<6){
+     passworderror.innerHTML=" Minimum 6 characters required  !";
+     return false;
+  }
+
+ if(!password.match( /^(?=.*[0-9])(?=.*[!@#$%^&*])[a-zA-Z0-9!@#$%^&*]{6,16}$/ )){
+     passworderror.innerHTML="password must contain atleast 1 special character and number !";
+     return false;
+
+  }
+   
+  
+  passworderror.innerHTML='';
+  return true;
+ }
+ function validatename(){
+ let names=document.getElementById("username").value;
+
+   if(names.length==0){
+     nameerror.innerHTML=" This Field is Required !";
+     return false;
+  }  
+  if(names.length<4){
+     nameerror.innerHTML=" Minimum 4 characters required  !";
+     return false;
+  } 
+ if(!names.match(/^[a-zA-Z]{4,}(?: [a-zA-Z]*){0,2}$/)){
+     nameerror.innerHTML="Username should not contain any  special characters and numbers !";
+     return false;
+
+  }
+   
+
+  
+  nameerror.innerHTML='';
+  return true;
+ }
+
+
+  function validateForm(){
+ if( !validatename()||!validatepassword()){
+      
+     return false;
+
+
+ }
+  }
+</script>

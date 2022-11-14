@@ -1,0 +1,30 @@
+
+
+  
+ 
+<section class= "pt-5" style="min-height:100vh ; background-color: rgb(182, 204, 223);"> 
+    
+ 
+<section class="pt-5">
+
+ <div class="container">
+    <div class="row">
+    {{#each vehicle}}
+     <div class="col-md-3 col-sm-6 col-12  cardcolum p-2">
+    <div class="card   " style="width: 18rem; background-color: aliceblue;">
+        <img src="{{ img}}" class="card-img-top" alt="...">
+        <div class="card-body">
+            <h5 class="card-title">{{name}}</h5>
+            <p class="card-text">{{ conf}}</p>
+            <p class="card-text">{{ perfo}}</p>
+            <p class="card-text">{{ fuel}}</p>
+            <a href="/login" class="btn btn-primary">BOOK NOW</a>
+        </div>
+    </div>
+ </div>
+    {{/each}}
+  </div>
+   </div>
+   </section>
+   
+</section>

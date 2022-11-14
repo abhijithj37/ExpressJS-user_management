@@ -1,0 +1,26 @@
+.loginpage{
+  background-color:rgb(182, 204, 223)  ;
+  min-height:100vh;
+  display: flex;
+  align-items: center;
+}
+.form-div{
+  border:solid 2px rgb(134, 184, 215);
+  border-radius: 10px;
+  margin-bottom: 5em;
+  
+}
+.outerform{
+  display: flex;
+  justify-content: center;
+  
+ }
+.loginnav{
+  background-color:rgb(182, 204, 223) ;
+
+}
+.cardcolum{
+  display: flex;
+  justify-content: center;
+  
+}
